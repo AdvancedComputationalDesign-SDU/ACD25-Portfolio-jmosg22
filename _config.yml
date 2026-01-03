@@ -3,7 +3,7 @@ title: Julius Drejer Mosgaard # EDIT THIS FIELD
 # Set baseurl to your repo name for project pages (e.g., "/ACD-Portfolio")
 baseurl: "/jmosg22-Portfolio" # EDIT THIS FIELD
 
-color_scheme: light #OPTIONAL: "light" or "dark"
+color_scheme: dark #OPTIONAL: "light" or "dark"
 
 # Do not modify parameters below:
 description: ACD-E25 Portfolio
@@ -12,4 +12,4 @@ remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
 
-search_enabled: true
+search_enabled: true 
