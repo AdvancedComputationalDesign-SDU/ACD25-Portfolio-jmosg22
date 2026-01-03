@@ -1,4 +1,23 @@
-# Documentation for Assignment 1
+---
+layout: default
+title: Project Documentation
+parent: "A1: NumPy Array Manipulation for 2D Pattern Generation"
+nav_order: 2
+nav_exclude: false
+search_exclude: false
+---
+
+# Assignment 1: NumPy Array Manipulation for 2D Pattern Generation
+
+[View on GitHub]({{ site.github.repository_url }})
+
+![Example Image](images/perlin_moire.png)
+
+## Objective
+
+The goal of this assignment is to create a Python program using NumPy to manipulate a 2-dimensional array and transform a blank canvas into a patterned image. You are asked apply various array operations, introduce randomness, and work with RGB channels to produce full-color images.
+
+Assignment 1
 ## Table of Contents
 
 - [Pseudo-Code](#pseudo-code)
@@ -53,7 +72,6 @@ Based on the t prameter and the sine curve the numeric value for R, G and B on e
 This was then applied to the canvas x,y coordinates and the final picture is saved automatically in the folder.
 
 The final picture is than varied randomly by colour, and the parameters of the sine curve (amplitude and frequency) and of course the resolution (w*h) 
-
 
 ---
 
