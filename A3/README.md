@@ -495,13 +495,17 @@ The design features a frequency of 5 from the numpy image and is thus well-suite
 
 ## Challenges and Solutions
 - **Cannot offset mesh**: Convert mesh to brep and offset that
-- **Lines above surface remain despite trim**: Cull all geometries above the surface. v
+
+- **Lines above surface remain despite trim**: Cull all geometries above the surface.
+
 - **Variable piping was a challenge to solve**: Recreate the process in grasshopper, then with the help of chatgpt convert the grasshopper components to pieces of python code
+
 - **Where to place the supports and by what logic**: Unify normals and find flat regions on the surface to grow the tree, then lift the surface up to the tree tops
+
 ---
 
-## References and AI Acknowledgments
-# References
+# References and AI Acknowledgments
+## References
 - **3D fractal tree support creation video**
 - https://www.youtube.com/watch?fbclid=IwY2xjawOKlbxleHRuA2FlbQIxMABicmlkETBidjQ3dGR4YXJ1aHZnekJkc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvh8ZMCp5-8LqZF3a4BgbIuUfKJFehfA2ViBAmO5EM9R0oJp-3j4K_0_ZgBg_aem_ZO59-8diG1cyIs5fFYlyow&v=wV6W69b-l7w&feature=youtu.be
 
@@ -511,7 +515,7 @@ The design features a frequency of 5 from the numpy image and is thus well-suite
 - **Solid offset of a brep forum**
 - https://discourse.mcneel.com/t/ghpython-offset-polysurface-created-in-grasshopper/144558/2
 
-# AI prompts
+## AI prompts
 
 --- ChatGPT was used to solve several problems, here is the subjects and the prompts i gave to the LLM i needed help with.
 
