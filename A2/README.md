@@ -26,11 +26,11 @@ search_exclude: false
 
 ## Pseudo-Code
 
-1. Define Main Recursive Function 
+1. **Define Main Recursive Function**
 
 triangle(start_pos, initial_length, depth, max_depth, rotation_step)
 
-2. Setup Parameters
+2. **Setup Parameters**
 
 start_pos: Tuple (x, y) representing the bottom-left vertex of the triangle.
 
@@ -42,7 +42,7 @@ max_depth: The maximum recursion depth.
 
 rotation_step: The incremental rotation (in degrees) applied per recursion level.
 
-3. Construct for loop
+3. **Construct for loop**
 
 If depth > max_depth:
 
@@ -86,13 +86,13 @@ Return (after all recursive sub-triangles have been generated).
 
 Define Visualization Function visualize_fractal(line_list, min_depth, max_depth, color_start, color_end, outlines=False)
 
-4. Group lines and add colour gradient
+4. **Group lines and add colour gradient**
 
 line_list: List of (Polygon, depth) tuples.
 
 color_start, color_end: Start and end colors for gradient.
 
-5. For loop to add gradient based on recursive depth
+5. **For loop to add gradient based on recursive depth**
 
 Loop through each (tri, depth):
 
@@ -109,12 +109,12 @@ initial_length = 1.0
 max_depth = 5
 rotation_step = 0
 
-6. Randomly select two colors to define the gradient:
+6. **Randomly select two colors to define the gradient**
 
 color1 = mcolors.to_rgb(random_color())
 color2 = mcolors.to_rgb(random_color())
 
-7. Generate and Visualize
+7. **Generate and Visualize**
 
 Clear any previous triangles.
 
@@ -126,7 +126,7 @@ Save the Image
 
 Ensure images/ folder exists using os.makedirs("images", exist_ok=True).
 
-8. Save figure:
+8. **Save figure**
 
 plt.savefig("images/fractal_triangle5.png", bbox_inches='tight', pad_inches=0)
 
