@@ -9,7 +9,7 @@ search_exclude: false
 
 # Assignment 2: Exploring Fractals through Recursive Geometric Patterns
 
-[View on GitHub]({{ site.github.repository_url }})
+[View on GitHub]({{ site.github.repository_url }}) 
 
 ## Table of Contents
 
@@ -109,12 +109,10 @@ initial_length = 1.0
 max_depth = 5
 rotation_step = 0
 
-
 6. Randomly select two colors to define the gradient:
 
 color1 = mcolors.to_rgb(random_color())
 color2 = mcolors.to_rgb(random_color())
-
 
 7. Generate and Visualize
 
@@ -176,19 +174,19 @@ When rotation_step ≠ 0, the pattern evolves into a rotational fractal, introdu
 ## Parameters & Seeds
 
 | Figure | Depth | Angle Δ | Length L | Colour |
-|1|5:|0:|1:|Red/Blue:|
+|1|5|0|1|Red/Blue|
 
 | Figure | Depth | Angle Δ | Length L | Colour |
-|2|5:|5:|1:|Turquoise/Red:|
+|2|5|5|1|Turquoise/Red|
 
 | Figure | Depth | Angle Δ | Length L | Colour |
-|3|5:|10:|1:|Purple/Blue:|
+|3|5|10|1|Purple/Blue|
 
 | Figure | Depth | Angle Δ | Length L | Colour |
-|4|5:|45:|1:|Purple/Green:|
+|4|5|45|1|Purple/Green|
 
 | Figure | Depth | Angle Δ | Length L | Colour |
-|5|10:|0:|1:|Green/Purple:|
+|5|10|0|1|Green/Purple|
 
 
 ---
