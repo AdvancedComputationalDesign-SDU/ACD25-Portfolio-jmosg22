@@ -23,7 +23,6 @@ search_exclude: false
 
 ## Pseudo-Code
 **Numpy driven heightmap**
-*In VScode I tweaked the deliverable from assigment 1 to create more interesting surfaces from the numpy array. The code can be found in the file "Parametric_Canopy" under "NUMPY"*
 
 **Inputs:**
 H x W
@@ -41,7 +40,8 @@ Frequency
 Numpy heightmap
 
 **Parametric Canopy**
-*In Grasshopper I have for my own sake divided the coding process into different python3 components, they each have a function and title and order of occurence, as will be explained sequentially in this chapter regarding the pseudo-code. The full grasshopper python code can be found in the file "Parametric_Canopy" under "GRASSHOPPER"*
+
+Herein are is the code for each python component in grasshopper for Rhino.
 
 ```python
 # 1. From image to points to surface.
@@ -152,7 +152,7 @@ Finally the outcome is a canopy with supports when combining the output from ste
 ```
 
 # Technical Explanation
-#### VScode
+- ## Visual Studio Code
 
 **Canvas Initialization**
 
@@ -199,7 +199,7 @@ matplotlib.pyplot.imshow displays the result without axes.
 
 The image is saved to a filepath as a PNG with no borders.
 
-### Grasshopper
+- ## Grasshopper
 **Image-Based Heightfield Generation**
 
 The workflow begins by reading a bitmap from a file path

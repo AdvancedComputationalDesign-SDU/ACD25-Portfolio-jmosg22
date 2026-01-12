@@ -35,7 +35,6 @@ The panelization strategy is an adaptive tessellation based on agent density. On
 
 ## Pseudo-Code
 ### Surface generator
----
 
 Validate input U, V; abort if either is missing or < 2
 
@@ -63,8 +62,9 @@ Construct NURBS surface using CreateThroughPoints
 
 Output generated surface S
 
-### Surface divider
 ---
+
+### Surface divider
 
 Accept input geometry S as Surface or Brep
 
@@ -92,8 +92,9 @@ N → normals
 
 uv → UV coordinates
 
-### Agent builder
 ---
+
+### Agent builder
 
 Validate surface input S
 
@@ -127,8 +128,9 @@ AgentKey
 
 BuilderComp
 
-### Agent simulator
 ---
+
+### Agent simulator
 
 Resolve sticky storage key from BuilderComp or AgentKey
 
@@ -172,8 +174,9 @@ N_out → normals
 
 C → curvature values
 
-### Panelization
 ---
+
+### Panelization
 
 Validate agent points and surface input
 
@@ -205,10 +208,11 @@ Panels → Brep panels
 
 Mesh3D → triangulated surface mesh
 
+---
+
 ## Technical Explanation
 
 ### 1. Overall Pipeline
----
 
 The system follows a iterative pipeline that transforms an abstract surface into a rationalized panelized geometry driven by agent behavior.
 
@@ -222,8 +226,10 @@ The simulation in agent_simulator.py iteratively updates agent positions based o
 
 Finally, the evolved agent positions are converted into mesh topology and planar panels in the panelization stage, producing the final geometric output.
 
-### 2. Surface Generation and Fields
 ---
+
+### 2. Surface Generation and Fields
+
 
 The surface is generated procedurally using a structured UV grid combined with a random height field, similar in spirit to a heightmap approach but directly embedded into a NURBS surface.
 
@@ -237,8 +243,9 @@ Agents operate in UV space; their (u, v) coordinates are obtained via ClosestPoi
 
 This direct surface querying avoids discretization artifacts and keeps agent decisions tightly coupled to the underlying geometry.
 
-### 3. Geometric Signals and Agent Behaviors
 ---
+
+### 3. Geometric Signals and Agent Behaviors
 
 Curvature is the primary driving signal in the system.
 
@@ -260,8 +267,9 @@ Curvature defines the preferred direction of movement, while repulsion modifies 
 
 This hierarchy ensures that geometric intent dominates while still maintaining spatial balance.
 
-### 4. Agent Life-Cycle and Interactions
 ---
+
+### 4. Agent Life-Cycle and Interactions
 
 Agents are persistent entities whose state is stored across solver iterations using Grasshopper’s sticky memory.
 
@@ -275,8 +283,9 @@ Repulsion ensures agents distribute themselves evenly within curvature-driven at
 
 This interaction directly affects the final panelization by controlling local point density and preventing degenerate or overly small panels.
 
-### 5. Simulation and Panelization Strategy
 ---
+
+### 5. Simulation and Panelization Strategy
 
 The simulation typically runs for a user-controlled number of steps, or interactively until the agent distribution stabilizes.
 
@@ -298,23 +307,22 @@ Low-curvature regions produce larger, fewer panels.
 
 This strategy rationalizes the surface by aligning panel density with geometric complexity.
 
+---
+
 ### 6. Multi-Module Design
----
 
-The project is split into multiple modules to separate tasks and improve clarity
+- The project is split into multiple modules to separate tasks and improve clarity.
 
-surface_generator.py is responsible only for geometry creation and remains independent of agents or simulation logic.
+- Surface_generator.py is responsible only for geometry creation and remains independent of agents or simulation logic. 
 
-agent_builder.py handles initialization, identity etc
+- Agent_builder.py handles initialization, identity etc.
 
-agent_simulator.py focuses exclusively on behavioral logic
+- Agent_simulator.py focuses exclusively on behavioral logic.
 
-Panelization is isolated as a post-processing step that interprets simulation results without influencing agent behavior.
+- Panelization is isolated as a post-processing step that interprets simulation results without influencing agent behavior. 
 
-This modular structure allows individual components to be swapped, extended, or reused.
-
+- This modular structure allows individual components to be swapped, extended, or reused. 
 For example, alternative surfaces, additional signals, or new agent rules can be introduced without rewriting the entire system.
----
 
 ## Design Variations
 Design varations where created on the same surface (seed: 6) with different input parameter to get 3 different panelization results based on number of agents, curvature and repulsion, as described in the next section.
@@ -469,5 +477,3 @@ Provide guidance on how to structure sticky storage so agents only update when i
 
 - **Grasshopper components converted to RhinoScriptSyntax overview**
 - https://developer.rhino3d.com/api/RhinoScriptSyntax/
-
----

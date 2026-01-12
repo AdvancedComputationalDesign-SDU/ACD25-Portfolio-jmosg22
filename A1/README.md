@@ -21,7 +21,7 @@ search_exclude: false
 ---
 
 ## Pseudo-Code
-**Create canvas and rgb**
+**Create canvas and RGB**
 - Set canvas dimensions, this was arbitrarily set to 100x100.
 - Introduce a blank canvas of zeros and the 3 colour channels (RGB).
 
