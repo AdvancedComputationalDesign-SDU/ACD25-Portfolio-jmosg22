@@ -400,45 +400,86 @@ H x W: 100
 ![Close up](images/DesignB.3.jpg)
 ![Panels](images/DesignB.4.jpg)
 
+
+#### Parameters
 Curvature control: 3
+
 UV count: 50
+
 Region_tol: 0.40
+
 Tree recursions: 4
+
 Max angle of outward tree growth: 10
+
 Scale of each branch: 1
+
 Seed of tree fractal: 8
+
 Vector amplitude of each branch: 50
+
 Surface height (canopy height): 180
+
 Max angle difference fore tesselation: 2
+
 Option min size of each tesselate patch: 25
+
 Max step number of different patch sizes: 4
+
 Radius at pipe base: 10
+
 Surface thickness: 2
 
+#### Description
 The design features a frequency of 4 from the numpy image and is thus well-suited for 4 supports. The supports branch 4 times before reaching the surface. In the surface canopy one can clearly see the features of "surfaceimg2.png". The radius of the supports are set to a propertional 10 units and surface thickness is thinner at 2 unites. In the image "DesignB.4" one can see the tesselate output being more rough with larger panels, as the recursion of patch sices is reduced to 4.
 
 ## Design C
-Numpy image (images/surfaceimg1.png)
+#### Base image
+![Numpy img](images/surfaceimg3.png)
+
 Amplitude: 40
+
 Frequency: 5
+
 H x W: 100
 
-Rhino Arctic Render images (images/DesignA.1.jpg images/DesignA.2.jpg images/DesignA.3.jpg images/DesignA.4.jpg)
+
+#### Rhino Arctic Render images 
+![Top view](images/DesignC.1.jpg)
+![Front View](images/DesignC.2.jpg)
+![Close up](images/DesignC.3.jpg)
+![Panels](images/DesignC.4.jpg)
+
+#### Parameters
 Curvature control: 2
+
 UV count: 50
+
 Region_tol: 0.30
+
 Tree recursions: 8
+
 Max angle of outward tree growth: 15
+
 Scale of each branch: 1.0
+
 Seed of tree fractal: 2
+
 Vector amplitude of each branch: 40
+
 Surface height (canopy height): 180
+
 Max angle difference fore tesselation: 2
+
 Option min size of each tesselate patch: 0
+
 Max step number of different patch sizes: 6
+
 Radius at pipe base: 5
+
 Surface thickness: 5
 
+#### Description
 The design features a frequency of 5 from the numpy image and is thus well-suited for 5 supports. The supports branch 8 times before reaching the surface. In the surface canopy one can clearly see the features of "surfaceimg3.png". The radius of the supports are set to a thinner 5 units and surface thickness is again 2 to get a smooth an elegant structure. In the image "DesignC.4" one can see the tesselate output is also smoother.
 
 ### Parameter Tables
