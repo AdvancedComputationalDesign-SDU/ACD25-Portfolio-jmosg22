@@ -55,7 +55,7 @@ Assignment 1
 ---
 
 ## Technical Explanation
-In this assignment I wished to expirment with colour gradients and have them mesh together in a organic way, as i find these colour interactions inherently interesting.
+In this assignment I wished to experiment with colour gradients and have them mesh together in a organic way, as i find these colour interactions inherently interesting.
 I began with creating a canvas to paint on with np.zeros of an arbitrary dimension of 100x100 pixels.
 
 Then as the end goal was to have to random colours interacting I imported "random" to get random integers (randint) from 0 to 255, the values RGB can have. Then the two colours are divided so there is RGB vaues for either side of the divide. And finally the average colour between was calculated.
