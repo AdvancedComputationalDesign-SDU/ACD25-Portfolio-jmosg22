@@ -22,10 +22,10 @@ search_exclude: false
 ---
 
 ## Pseudo-Code
-1. **Numpy driven heightmap**
+**Numpy driven heightmap**
 *In VScode I tweaked the deliverable from assigment 1 to create more interesting surfaces from the numpy array. The code can be found in the file "Parametric_Canopy" under "NUMPY"*
 
-2. **Inputs:**
+**Inputs:**
 H x W
 Colour
 Amplitude
@@ -37,10 +37,10 @@ Frequency
 - For each pixel, compute distance from its x-coordinate to the sine curve
 - Normalize distance -> blend between center_color and edge_color to fill the image
 
-3. **Output:**
+**Output:**
 Numpy heightmap
 
-4. **Parametric Canopy**
+**Parametric Canopy**
 *In Grasshopper I have for my own sake divided the coding process into different python3 components, they each have a function and title and order of occurence, as will be explained sequentially in this chapter regarding the pseudo-code. The full grasshopper python code can be found in the file "Parametric_Canopy" under "GRASSHOPPER"*
 
 ```python
@@ -154,11 +154,11 @@ Finally the outcome is a canopy with supports when combining the output from ste
 # Technical Explanation
 #### VScode
 
-1. **Canvas Initialization**
+**Canvas Initialization**
 
 A NumPy array of shape (height, width, 3) is created to hold RGB values in floating-point format.
 
-2. **Color Definitions**
+**Color Definitions**
 
 Two RGB colors are selected:
 
@@ -166,7 +166,7 @@ center_color for pixels lying on or near the sine curve.
 
 edge_color for pixels far from the curve (left and right borders).
 
-3. **Sine Curve Computation**
+**Sine Curve Computation**
 
 A vertical list of y-coordinates (0 -> height-1) determines the rows in the image.
 
@@ -176,13 +176,13 @@ where A is the amplitude and f the frequency of the sine wave.
 
 This produces a single-pixel-wide sine curve running from top to bottom,
 
-4. **Distance Field Calculation**
+**Distance Field Calculation**
 
 A 1D array of x-pixel positions (0 -> width-1) is broadcast against the sine-center array.
 
 For each pixel (x, y) the absolute distance to the sine path is computed
 
-5. **Color Blending via Normalized Distance**
+**Color Blending via Normalized Distance**
 
 Distances are normalized to the range 0–1 by dividing by half the image width.
 
@@ -191,7 +191,7 @@ where t is the normalized distance.
 
 This produces a smooth gradient that radiates outward from the sine curve.
 
-6. **Rendering and Export**
+**Rendering and Export**
 
 The final canvas is cast to uint8 (0–255) to become a proper image 
 
@@ -200,7 +200,7 @@ matplotlib.pyplot.imshow displays the result without axes.
 The image is saved to a filepath as a PNG with no borders.
 
 ### Grasshopper
-1. **Image-Based Heightfield Generation**
+**Image-Based Heightfield Generation**
 
 The workflow begins by reading a bitmap from a file path
 
@@ -210,13 +210,13 @@ A function (0.2126R + 0.7152G + 0.0722B) converts colour to grayscale height, sc
 
 All inputs are normalized so mixed Grasshopper/Rhino point inputs are converted to canonical Rhino.Geometry.Point3d objects.
 
-2. **Point Grid Creation**
+**Point Grid Creation**
 
 The flattened list of grayscale-derived points is reshaped into a regular UV lattice of size U×V.
 
 This structured grid is essential for surface generation because each row and column becomes an isoparametric sampling of the heightfield.
 
-3. **Surface Construction (NURBS Reconstruction)**
+**Surface Construction (NURBS Reconstruction)**
 
 The UV-ordered point grid is passed into one of two RhinoCommon constructors:
 
@@ -226,7 +226,7 @@ NurbsSurface.CreateFromPoints when a least-squares approximation is desired (smo
 
 This produces a continuous, smooth surface representing the grayscale image as a height-mapped topology.
 
-4. **Low-Region Detection & Surface Sampling**
+**Low-Region Detection & Surface Sampling**
 
 The NURBS surface is sampled at a secondary resolution (Ucount × Vcount) to get:
 
@@ -240,7 +240,7 @@ The lowest 5% of points are identified, and their normals are averaged to estima
 
 All points whose normals align (within 3°) and whose Z elevation lies within a tolerance of the global minimum Z are collected as candidates for support placement.
 
-5. **Spatial Clustering of Flat Regions**
+**Spatial Clustering of Flat Regions**
 
 A bounding-box–scaled tolerance groups adjacent low regions into clusters using simple distance-based grouping.
 
@@ -248,7 +248,7 @@ Each cluster represents a “flat support zone.”
 
 The centroid of each cluster becomes a base point from which structural supports are grown.
 
-6. **Recursive Support Structure Generation**
+**Recursive Support Structure Generation**
 
 A recursive branching algorithm (Grow) generates tree-like supports:
 
@@ -262,7 +262,7 @@ Branch length decays per generation (0.75–0.95 multiplier).
 
 This process yields an organic, self-similar, recursively developed support structure.
 
-7. **Cutting Supports Against the Surface**
+**Cutting Supports Against the Surface**
 
 The input surface is temporarily moved upward by a user-defined offset (srf_z).
 
@@ -274,7 +274,7 @@ If no hit is found, the curve is conditionally kept only if its start point is b
 
 This produces supports that correctly terminate at the canopy rather than penetrating through it.
 
-8. **Culling Supports Above/Below the Final Surface**
+**Culling Supports Above/Below the Final Surface**
 
 A true signed distance function is implemented using:
 
@@ -288,7 +288,7 @@ Midpoints of curves determine whether a support lies above or below the surface.
 
 Based on a boolean parameter (side), curves are kept or rejected.
 
-9. **Variable-Radius Piping of Curves**
+**Variable-Radius Piping of Curves**
 
 Curves are coerced into Rhino geometry and their start/end Z-values are collected.
 
@@ -298,7 +298,7 @@ These normalised values are multiplied by a user factor to generate radii.
 
 Each curve is reparameterized to 0–1 and piped using Brep.CreatePipe with different radii at start and end, emulating Grasshopper’s Pipe Variable component.
 
-10. **Surface Tessellation via Adaptive Recursive Subdivision**
+**Surface Tessellation via Adaptive Recursive Subdivision**
 
 The surface is tessellated by recursively subdividing its UV domain:
 
@@ -312,7 +312,7 @@ Otherwise the patch splits into four sub-patches.
 
 This produces smooth-where-possible, detailed-where-necessary tessellation.
 
-11. **Mesh-to-Brep Conversion and Offset**
+**Mesh-to-Brep Conversion and Offset**
 
 Each face is extracted as four corner points
 
@@ -324,7 +324,7 @@ Fallback: ruled surface or loft between opposite edges
 
 The resulting Breps are combined and offset using Brep.CreateOffsetBrep to produce a thickened shell for the final canopy.
 
-12. **Final Structural Canopy Assembly**
+**Final Structural Canopy Assembly**
 
 The workflow’s outputs—tessellated panels, offset canopy shell, variable-radius pipes, and trimmed recursive supports—form the final architectural structure.
 

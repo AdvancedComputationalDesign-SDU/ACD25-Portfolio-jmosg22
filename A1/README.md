@@ -11,10 +11,6 @@ search_exclude: false
 
 [View on GitHub]({{ site.github.repository_url }})
 
-## Objective
-
-The goal of this assignment is to create a Python program using NumPy to manipulate a 2-dimensional array and transform a blank canvas into a patterned image. Apply various array operations, introduce randomness, and work with RGB channels to produce full-color images.
-
 ## Table of Contents
 
 - [Pseudo-Code](#pseudo-code)
@@ -25,27 +21,27 @@ The goal of this assignment is to create a Python program using NumPy to manipul
 ---
 
 ## Pseudo-Code
-1. **Create canvas and rgb**
+**Create canvas and rgb**
 - Set canvas dimensions, this was arbitrarily set to 100x100.
 - Introduce a blank canvas of zeros and the 3 colour channels (RGB).
 
-2. **Choose random RGB for the left and right side of the divide**
+**Choose random RGB for the left and right side of the divide**
 - Use random to choose an integer between 0 and 255 for each colour channel and each side, so for example left_red is assigned some number from 0 to 255.
 - Finding the average colour channels by adding the left red and right red then dividing by two gives the "average" colour between the two. This we will need to create the gradiants that goes from either side of the image towards the middle.
 
-3. **Setup parameters for the sine curve**
+**Setup parameters for the sine curve**
 - A sine curve is defined by amplitude: the height of the waves - and the frequency: number of waves.
 - For the amplitude we define it by the width of the image, so some number smaller than 1 is multiplied with the width (so it does not become bigger than the image) in this case 0,2.
 
-4. **Create a for loop to determinne the colour of each pixel**
+**Create a for loop to determinne the colour of each pixel**
 - In this loop a parameter called "t" is introduced to represent a value from 0 to 1 that determine colour of each pixel.
 - The closer to 0 t is means it is at the middle of the sine curve, thus the closer to 1 it is at either the left or right side of the sine curve.
 - RGB values are then generated for the t domain between 0 and 1
 
-5. **Assign colour to (y,x) coordinates**
+**Assign colour to (y,x) coordinates**
 - The loop then repeats assigning a RGB value to each (x,y) coordinate depending on the t parameter.
 
-6. **Visualize and Save Image**
+**Visualize and Save Image**
 - Use Matplotlib to display the image.
 - Save the image to the `images/` folder.
 
