@@ -26,9 +26,11 @@ search_exclude: false
 
 ## Pseudo-Code
 
-Define Main Recursive Function triangle(start_pos, initial_length, depth, max_depth, rotation_step)
+1. Define Main Recursive Function 
 
-Inputs:
+triangle(start_pos, initial_length, depth, max_depth, rotation_step)
+
+2. Setup Parameters
 
 start_pos: Tuple (x, y) representing the bottom-left vertex of the triangle.
 
@@ -40,7 +42,7 @@ max_depth: The maximum recursion depth.
 
 rotation_step: The incremental rotation (in degrees) applied per recursion level.
 
-Process:
+3. Construct for loop
 
 If depth > max_depth:
 
@@ -84,13 +86,13 @@ Return (after all recursive sub-triangles have been generated).
 
 Define Visualization Function visualize_fractal(line_list, min_depth, max_depth, color_start, color_end, outlines=False)
 
-Inputs:
+4. Group lines and add colour gradient
 
 line_list: List of (Polygon, depth) tuples.
 
 color_start, color_end: Start and end colors for gradient.
 
-Process:
+5. For loop to add gradient based on recursive depth
 
 Loop through each (tri, depth):
 
@@ -108,13 +110,13 @@ max_depth = 5
 rotation_step = 0
 
 
-Randomly select two colors to define the gradient:
+6. Randomly select two colors to define the gradient:
 
 color1 = mcolors.to_rgb(random_color())
 color2 = mcolors.to_rgb(random_color())
 
 
-Generate and Visualize
+7. Generate and Visualize
 
 Clear any previous triangles.
 
@@ -126,7 +128,7 @@ Save the Image
 
 Ensure images/ folder exists using os.makedirs("images", exist_ok=True).
 
-Save figure:
+8. Save figure:
 
 plt.savefig("images/fractal_triangle5.png", bbox_inches='tight', pad_inches=0)
 
@@ -173,15 +175,21 @@ When rotation_step ≠ 0, the pattern evolves into a rotational fractal, introdu
 
 ## Parameters & Seeds
 
-| Figure | Axiom/Init | Depth | Angle Δ | Length L | Scale s | Influences | Seed | Notes |
-|---|---|---:|---:|---:|---:|---|---|---|
-| 1 | ... | ... | ... | ... | ... | ... | 42 | ... |
+| Figure | Depth | Angle Δ | Length L | Colour |
+|1|5:|0:|1:|Red/Blue:|
 
-Record every figure’s parameter set and SEED. You may also print a small run dictionary for traceability:
-```python
-RUN = dict(seed=SEED, depth=DEPTH, angle=ANGLE, scale=S, influences=['attractor','obstacle'])
-print('Run:', RUN)
-```
+| Figure | Depth | Angle Δ | Length L | Colour |
+|2|5:|5:|1:|Turquoise/Red:|
+
+| Figure | Depth | Angle Δ | Length L | Colour |
+|3|5:|10:|1:|Purple/Blue:|
+
+| Figure | Depth | Angle Δ | Length L | Colour |
+|4|5:|45:|1:|Purple/Green:|
+
+| Figure | Depth | Angle Δ | Length L | Colour |
+|5|10:|0:|1:|Green/Purple:|
+
 
 ---
 

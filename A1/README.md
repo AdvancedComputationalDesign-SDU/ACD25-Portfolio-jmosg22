@@ -11,13 +11,10 @@ search_exclude: false
 
 [View on GitHub]({{ site.github.repository_url }})
 
-![Example Image](images/perlin_moire.png)
-
 ## Objective
 
-The goal of this assignment is to create a Python program using NumPy to manipulate a 2-dimensional array and transform a blank canvas into a patterned image. You are asked apply various array operations, introduce randomness, and work with RGB channels to produce full-color images.
+The goal of this assignment is to create a Python program using NumPy to manipulate a 2-dimensional array and transform a blank canvas into a patterned image. Apply various array operations, introduce randomness, and work with RGB channels to produce full-color images.
 
-Assignment 1
 ## Table of Contents
 
 - [Pseudo-Code](#pseudo-code)
@@ -48,7 +45,7 @@ Assignment 1
 5. **Assign colour to (y,x) coordinates**
 - The loop then repeats assigning a RGB value to each (x,y) coordinate depending on the t parameter.
 
-5. **Visualize and Save Image**
+6. **Visualize and Save Image**
 - Use Matplotlib to display the image.
 - Save the image to the `images/` folder.
 
@@ -77,10 +74,15 @@ The final picture is than varied randomly by colour, and the parameters of the s
 
 ## Results
 A single sine wave, freqeuncy = 1*pi, amplitude = 50
+
 ![Gradient Result](images/gradient_wave1.png)
+
 Two sine waves, frequency = 2*pi,  amplitude = 20
+
 ![Gradient Result](images/gradient_wave2.png)
+
 Three sine waves, frequency = 4*pi  amplitude = 30
+
 ![Gradient Result](images/gradient_wave3.png)
 
 ## References
